@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bài Tập JS Buổi 7-8</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Bài Tập JavaScript Buổi 7-8:Nhập Số Và Viết Tính Năng Vào Mảng</h2>
+      <div class="bg-info text-white p-3 mb-3">
+        <i class="fa-solid fa-pen" style="color: black"></i>
+        Mảng Số Hiện tại:
+        <span id="array"></span>
+      </div>
+      <div class="form-group">
+        <label for="">Nhập số vào mảng:</label>
+        <input
+          type="text"
+          name="numberInput"
+          id="number"
+          class="form-control"
+          placeholder="Nhập Số n"
+          aria-describedby="helpId"
+        />
+      </div>
+      <button class="btn btn-success" onclick="handleNumber()">Thêm số</button>
+      <br /><br /><br />
+      <h4>1: Tính Tổng Số Dương Trong Mảng</h4>
+      <button class="btn btn-success" onclick="sumNumber()">
+        Tổng Số Dương
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result"></span>
+      </div>
+      <br /><br />
+      <h4>2: Đếm Có Bao Nhiêu Số Dương Trong Mảng</h4>
+      <button class="btn btn-success" onclick="countNumber()">
+        Đếm Số Dương
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result2"></span>
+      </div>
+      <br /><br />
+      <h4>3: Tìm Số Nhỏ Nhất Trong Mảng</h4>
+      <button class="btn btn-success" onclick="findMin()">Tìm Min</button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result3"></span>
+      </div>
+      <br /><br />
+      <h4>4: Tìm Số Dương Nhỏ Nhất Trong Mảng</h4>
+      <button class="btn btn-success" onclick="findMinPositive()">
+        Tìm Min Dương
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result4"></span>
+      </div>
+      <br /><br />
+      <h4>
+        5: Tìm Số Chẵn Cuối Cùng Trong Mảng, Nếu Số Cuối Không Phải Số Chẵn Thì
+        Trả Về Giá Trị -1
+      </h4>
+      <button class="btn btn-success" onclick="findLastEven()">
+        Tìm Số Chẵn Cuối
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result5"></span>
+      </div>
+      <br /><br />
+      <h4>
+        6: Đổi chỗ 2 giá trị trong mảng theo vị trí (Cho nhập vào 2 vị trí muốn
+        đổi chỗ giá trị).
+      </h4>
+      <div class="form-group">
+        <label for="">Nhập 2 Vị Trí Phần Tử Muốn Đổi</label>
+        <input
+          type="text"
+          name=""
+          id="swapPositions"
+          class="form-control"
+          placeholder="Nhập 2 vị trí muốn đổi chỗ, phân tách bằng dấu phẩy"
+          aria-describedby="helpId"
+        />
+      </div>
+      <button class="btn btn-success" onclick="swapArrayElements()">
+        Đổi Vị Trí
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result6"></span>
+      </div>
+      <br /><br />
+      <h4>7 : Sắp xếp mảng theo thứ tự tăng dần.</h4>
+      <button class="btn btn-success" onclick="sortArray()">
+        Sắp Xếp Tăng Dần
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result7"></span>
+      </div>
+      <br /><br />
+      <h4>
+        8 : Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố
+        thì trả về -1.
+      </h4>
+      <button class="btn btn-success" onclick="findFirstPrime()">
+        Tìm Số Nguyên Tố Đầu Tiên
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result8"></span>
+      </div>
+      <br /><br />
+      <h4>
+        9: Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên?
+      </h4>
+      <div class="form-group">
+        <label for="">Nhập Thêm 1 Mảng Số Thực</label>
+        <input
+          type="text"
+          name=""
+          id="addIntegers"
+          class="form-control"
+          placeholder="Nhập mảng số thực, phân tách bằng dấu phẩy"
+          aria-describedby="helpId"
+        />
+      </div>
+      <button class="btn btn-success" onclick="handleNumber2()">
+        Thêm Số vào Mảng
+      </button>
+      <br /><br />
+      <div class="bg-info text-white p-3 mb-3">
+        <i class="fa-solid fa-pen" style="color: black"></i>
+        Mảng Số hiện tại sau khi thêm:
+        <span id="array2"></span>
+      </div>
+
+      <button class="btn btn-success" onclick="countIntegers()">
+        Đếm Số Nguyên Sau Khi Thêm Mảng
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result9"></span>
+      </div>
+      <br /><br />
+      <h4>
+        10: So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.
+      </h4>
+      <button class="btn btn-success" onclick="comparePosNeg()">
+        So Sánh Số Âm, Số Dương
+      </button>
+      <br /><br />
+      <div>
+        <i class="fa-regular fa-circle-right"></i>
+        <span id="result10"></span>
+      </div>
+      <br /><br />
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
